@@ -37,6 +37,8 @@ pipeline {
             steps {
                 sh '''
                     ls -la
+                    npm config set cache $HOME/.npm
+                    npm install                    
                     node --version
                     npm --version
                     npm ci
