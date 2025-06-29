@@ -38,6 +38,7 @@ pipeline {
                 sh '''
                     ls -la
                     npm config set cache $HOME/.npm
+                    sudo chown -R 111:113 "/.npm"
                     npm install                    
                     node --version
                     npm --version
