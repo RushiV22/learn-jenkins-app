@@ -35,16 +35,12 @@ pipeline {
                 }
             }
             
+ 
             steps {
                 sh '''
                     export HOME=/home/node
                     npm config set cache $HOME/.npm
                     npm install
-                '''
-            }
-        }
-            steps {
-                sh '''
                     ls -la
                     args '-u node -e HOME=/home/node'
                     npm config set cache $HOME/.npm
