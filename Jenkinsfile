@@ -31,9 +31,20 @@ pipeline {
             agent {
                 docker {
                     image 'node:18-alpine'
+                    args '-u node -e HOME=/home/node'
                     reuseNode true
                 }
             }
+            
+        stage('Install dependencies') {
+            steps {
+                sh '''
+                    export HOME=/home/node
+                    npm config set cache $HOME/.npm
+                    npm install
+                '''
+            }
+        }
             steps {
                 sh '''
                     ls -la
