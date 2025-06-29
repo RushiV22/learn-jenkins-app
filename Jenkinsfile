@@ -35,7 +35,6 @@ pipeline {
                 }
             }
             
-        stage('Install dependencies') {
             steps {
                 sh '''
                     export HOME=/home/node
